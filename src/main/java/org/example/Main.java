@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,7 +82,7 @@ public class Main {
 
 //        生徒名みたいな文字列のリストを作成する。
 //        リストの数は10個以上。
-//        リストに入っている文字数が3文字以上のものを表示する。
+//        リストに入っている文字数が3(5に変更)文字以上のものを表示する。
 //        このリストをループさせて繰り返し処理を実装し、その中で上記条件を満たすものだけ表示する。
 
 //        生徒と番号の組みわせのMapを作成（例：(1,"松ヶ野"))
@@ -89,5 +90,48 @@ public class Main {
 //        Mapの中の番号が偶数のものをMapから削除する。
 //        上記の処理を行う繰り返し処理の実装
 //        削除した状態のものを出力して表示
+
+        List<String> playerNameList = List.of("大谷翔平", "ムーキー・ベッツ", "フレディ・フリーマン", "テオスカー・ヘルナンデス", "ウィル・スミス", "マイケル・コンフォート", "マックス・マンシー", "アンディ・パヘス", "トミー・エドマン", "キケ・ヘルナンデス", "山本由伸");
+        for(String name : playerNameList) {
+            if(name.length() >=5) {
+                System.out.println(name);
+            }
+        }
+
+//        Map<Integer, List<String>> playerNameMap = Map.of(
+//            1, List.of("大谷翔平"),
+//            2, List.of("ムーキー・ベッツ"),
+//            3, List.of("フレディ・フリーマン"),
+//            4, List.of("テオスカー・ヘルナンデス"),
+//            5, List.of("ウィル・スミス"),
+//            6, List.of("マックス・マンシー"),
+//            7, List.of("アンディ・パヘス"),
+//            8, List.of("トミー・エドマン"),
+//            9, List.of("キケ・ヘルナンデス"),
+//            10, List.of("山本由伸"));
+//        for (Integer bLineup : playerNameMap.keySet()) {
+//            if (bLineup % 2 != 0) {  // 奇数の打順
+//                System.out.println(bLineup + ": " + playerNameMap.get(bLineup));
+//            }
+//        }
+
+        Map<Integer, List<String>> playerNameMap2 = new LinkedHashMap<>();
+        playerNameMap2.put(1, List.of("大谷翔平"));
+        playerNameMap2.put(2, List.of("ムーキー・ベッツ"));
+        playerNameMap2.put(3, List.of("フレディ・フリーマン"));
+        playerNameMap2.put(4, List.of("テオスカー・ヘルナンデス"));
+        playerNameMap2.put(5, List.of("ウィル・スミス"));
+        playerNameMap2.put(6, List.of("マックス・マンシー"));
+        playerNameMap2.put(7, List.of("アンディ・パヘス"));
+        playerNameMap2.put(8, List.of("トミー・エドマン"));
+        playerNameMap2.put(9, List.of("キケ・ヘルナンデス"));
+        playerNameMap2.put(10, List.of("山本由伸"));
+
+        // 奇数のキーのみ表示（順序保証）
+        for (Integer bLineup2 : playerNameMap2.keySet()) {
+            if (bLineup2 % 2 != 0) {
+                System.out.println(bLineup2 + ": " + playerNameMap2.get(bLineup2));
+            }
+        }
     }
 }
