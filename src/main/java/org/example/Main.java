@@ -31,11 +31,22 @@ public class Main {
       // 文字列のリストを作成
       // 要素数は10個
       // その文字列に対して、文字数が2以上のものを抽出して、文字列に変換。区切りはカンマ。
-      List<String> stingList = List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
-      System.out.println(stingList);
+      List<String> teamNameList = List.of("A", "NY", "SF", "P", "LA", "M", "SOX", "C", "SD", "TB");
+      System.out.println(
+      teamNameList.stream()
+          .filter(name -> name.length() >= 2)
+          .collect(Collectors.joining(","))
+      );
 
       // 数値のリストを作成
       // その数値の中の奇数のものだけを抽出して、平均値を出す
       // その平均値を出力
+      List<Integer> averageNumberList = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+      double average = averageNumberList.stream()
+          .mapToInt(Integer::intValue)
+          .filter(number -> number % 2 != 0)
+          .average()
+          .orElse(0.0);
+      System.out.println(average);
     }
 }
