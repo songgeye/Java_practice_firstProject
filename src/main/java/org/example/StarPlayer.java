@@ -14,4 +14,13 @@ public class StarPlayer extends MajorLeaguer {
     public String major(String MajorLeague) {
       return "世界のスター: " + MajorLeague;
     }
+
+    public String getlegendPlayer1(String legendPlayerName1) {
+    return super.player1(legendPlayerName1);
+    }
+
+    public String getlegendPlayer2(String legendPlayerName2) {
+    return super.player2(legendPlayerName2);
+    }
+
 }
