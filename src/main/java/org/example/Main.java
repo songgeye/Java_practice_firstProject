@@ -30,6 +30,13 @@ public class Main {
     // レジェンド選手
     printer.printplayer(starPlayer.getlegendPlayer1("イチロー"));
     printer.printplayer(starPlayer.getlegendPlayer2("松井秀喜"));
+
+    printer.printplayer(starPlayer.getgodPlayer("イチロー"));
+
+    // NPBレジェンド選手
+    OldhandPlayer oldhandPlayer = new OldhandPlayer();
+    printer.printplayer(oldhandPlayer.getJapanlegendPlayer1("坂本勇人"));
+
+    printer.printplayer(oldhandPlayer.getoldhandPlayer("松坂大輔"));
   }
 }
-// メソッドを呼び出す時はstaticが必要
