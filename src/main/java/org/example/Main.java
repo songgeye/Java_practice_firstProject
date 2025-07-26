@@ -3,7 +3,6 @@ package org.example;
 public class Main {
 
   public static void main(String[] args) {
-
     // 今回実装したものを一通り実践
     // GreetingとSpeakingは使わずにinterfaceと実装を組み合わせて作ってみる
     // interfaceの実装を2つ以上作る
