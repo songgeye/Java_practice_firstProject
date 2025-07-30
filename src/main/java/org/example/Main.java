@@ -1,52 +1,68 @@
 package org.example;
 
+import java.util.List;
+
 public class Main {
 
+  private static final String NAME = "Kengo Matsugano"; // 定数
+
   public static void main(String[] args) {
-    Greeting greeting = new Greeting();
-    String message = greeting.sayHello("Kengo Matsugano");
+    // Java 命名規則
+    // 日本語、英語、アンダーバーとか色々な文字列が使える
+    // 先頭文字に数字は使えない
+    // 文字数制限はない
+    // 大文字と小文字は区別される
 
-    Printer printer = new Printer();
-//    printer.printMessage(greeting.sayHello("Kengo Matsugano"));
-    printer.printMessage(message);
+    // Pascal
+    // 先頭は大文字、一般的な英語の書き方と同じ
+    // Main, Greeting
+    //
+    // Camel
+    // 先頭は小文字、言葉の区切りから大文字
+    // sayHello, numberSecond
 
-//    Speaking speaking = new Greeting(); // Speakingというインターフェースの中にGreetingという実体を入れることができる
-//    // ただあくまでインターフェース内で書かれていることしか見れない
+    // フィールド名、変数名
+    // 名詞
+    // number, message, name, xxList
 
-//    List<String> list = new ArrayList<>(); // List<>もインターフェース
-//    // ArrayList<>()の機能ではなく、List<>の機能を使っている
-//    List<String> list2 = new LinkedList<>();
-//    // List<>やinterfaceでもらえる方が好きに選べるのでありがたい
+    // メソッド名
+    // 動詞
+    // say, greet, print, printMessage
+    // getXX, setXX, countXX
 
-    // 継承より委譲
-    // 継承で作ると複雑になることで問題になりやすい
-    // バグを生みやすいので継承を現場では好んで使わない
+    // 定数
+    // フィールドとの違いは固定値であること、絶対に変更しないこと
+    // 全て大文字、Snakeケースを使う場合もある
+    // FULL_NAME
 
-    // 今回実装したものを一通り実践
-    // GreetingとSpeakingは使わずにinterfaceと実装を組み合わせて作ってみる
-    // interfaceの実装を2つ以上作る
-    // extendsを使ってみる
-    // 上記で作った2つの実装クラスのどちらかを継承してクラスを作って実際にメソッドを呼び出す
-    // メソッド呼び出しは親子のどちらとも呼び出してみる
-    MajorLeaguer majorLeaguer = new MajorLeaguer();
-    String majorLeaguername1 = majorLeaguer.player1("大谷翔平");
-    String majorLeaguername2 = majorLeaguer.player2("山本由伸");
+    // 真偽値、booleanを使う時の名前
+    // isXX, hasXX
+    // isNumber, isEmpty, isNull
 
-    NPBPlayer npbPlayer = new NPBPlayer();
-    String npbplayername1 = npbPlayer.player1("村上宗隆");
-    String npbplayername2 = npbPlayer.player2("牧秀悟");
+    // 命名の仕方
+    // 適当な名前をつけないこと、誰かに使われることを想定する
+    // 誰にも使われない、誰にも見せないものであれば適当でもいい
+    // 長くなってもいい、でも名前はコンパクトが一番、短く正確に伝わるのが理想
+    // 正確であることが大事、短くするのは後
+    // a, b, cのような適当な名前はなるべくつけない
+    //
+    // 課題
+    // 図書管理システムの作成
+    // 書籍(Book)を管理する情報(タイトル、著者、番号)を持つオブジェクト(クラス)を作成し、格納する
+    // 図書館(Library)みたいなものを作って、そこにBookをListで持つようなものを保持する
+    // mainメソッドからこのLibraryクラスに対して検索ができるようにする、Libraryクラスは書籍検索の機能を持つ
+    // タイトル検索、著者検索、番号検索メソッドをLibraryに持たせる
+    // それをmainメソッドから実行して、実行結果をコンソールに出力する
 
-    StarPlayer starPlayer = new StarPlayer();
-    String starPlayerName1 = starPlayer.player1("大谷翔平");
-    String starPlayerName2 = starPlayer.player2("山本由伸");
+//    Book book = new Book("ブランディングの科学", "バイロンシャープ", 1);
+//    book.setTitle("ブランディングの科学2"); // タイトルを上書き、ただあまり上書きを勝手にしないので使わない
+//    上書きしたいのであればもう一回インスタンス生成する
 
-    Printer printerSports = new Printer();
-    printerSports.printplayer(majorLeaguername1);
-    printerSports.printplayer(majorLeaguername2);
-    printerSports.printplayer(npbplayername1);
-    printerSports.printplayer(npbplayername2);
-    printerSports.printplayer(starPlayerName1);
-    printerSports.printplayer(starPlayerName2);
+    Book book1 = new Book("ブランディングの科学", "バイロンシャープ", 1);
+    Book book2 = new Book("ブランディングの科学", "バイロンシャープ", 2);
+    System.out.println(book1.getTitle()); // staticではないものを取る時にgetterで取ってくる
+
+    List<Book> bookList = List.of(book1, book2);
+//    System.out.println(bookList); // このまま出力するとList<Book>が何の型なのかプログラム側がわからない
   }
 }
-// メソッドを呼び出す時はstaticが必要
