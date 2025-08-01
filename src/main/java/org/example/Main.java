@@ -19,8 +19,10 @@ public class Main {
     System.out.println(book.getTitle()); // staticではないものを取る時にgetterで取ってくる
 
     Library library = new Library();
-    library.findBookByTitle();
-
+    library.findBookByTitle("a");
+    library.findAndDisplayBookByTitle("b");
+    library.findAndDisplayBookByTitle("Java入門");
+    library.findBookByTitle("存在しない本");
 //    System.out.println(library.getBookList());
 //    library.displayAllBooks();
   }
