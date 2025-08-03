@@ -1,29 +1,34 @@
 package org.example;
 
+import java.util.List;
+import java.util.Optional;
+
 public class Main {
 
   public static void main(String[] args) {
-    // 課題
-    // 図書管理システムの作成
-    // 書籍(Book)を管理する情報(タイトル、著者、番号)を持つオブジェクト(クラス)を作成し、格納する
-    // 図書館(Library)みたいなものを作って、そこにBookをListで持つようなものを保持する
-    // mainメソッドからこのLibraryクラスに対して検索ができるようにする、Libraryクラスは書籍検索の機能を持つ
-    // タイトル検索、著者検索、番号検索メソッドをLibraryに持たせる
-    // それをmainメソッドから実行して、実行結果をコンソールに出力する
+    List<Book> bookList = List.of(
+        new Book("Java入門", "山田太郎", 1001),
+        new Book("Python基礎", "田中花子", 1002),
+        new Book("データベース設計", "佐藤次郎", 1003),
+        new Book("Spring Boot実践", "鈴木美咲", 1004),
+        new Book("React入門", "高橋健太", 1005)
+    );
 
-//    Book book = new Book("ブランディングの科学", "バイロンシャープ", 1);
-//    book.setTitle("ブランディングの科学2"); // タイトルを上書き、ただあまり上書きを勝手にしないので使わない
-//    上書きしたいのであればもう一回インスタンス生成する
+    Library library = new Library(bookList);
 
-    Book book = new Book("ブランディングの科学", "バイロンシャープ", 1);
-    System.out.println(book.getTitle()); // staticではないものを取る時にgetterで取ってくる
+    Optional<Book> titleResult = library.searchByTitle("Java入門");
+    if (titleResult.isPresent()) {
+      System.out.println("タイトル検索結果: " + titleResult.get());
+    }
 
-    Library library = new Library();
-    library.findBookByTitle("a");
-    library.findAndDisplayBookByTitle("b");
-    library.findAndDisplayBookByTitle("Java入門");
-    library.findBookByTitle("存在しない本");
-//    System.out.println(library.getBookList());
-//    library.displayAllBooks();
+    Optional<Book> authorResult = library.searchByAuthor("田中花子");
+    if (authorResult.isPresent()) {
+      System.out.println("著者検索結果: " + authorResult.get());
+    }
+
+    Optional<Book> numberResult = library.searchByNumber(1003);
+    if (numberResult.isPresent()) {
+      System.out.println("番号検索結果: " + numberResult.get());
+    }
   }
 }

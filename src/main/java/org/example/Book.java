@@ -2,16 +2,14 @@ package org.example;
 
 public class Book {
 
-  String title;
+  private String title;
+  private String author;
+  private int number;
 
-  String author;
-
-  int isbn;
-
-  public Book(String title, String author, int isbn) {
-    this.title = title; // thisは自分自身、thisがないとどれかわからなくなる
+  public Book(String title, String author, int number) {
+    this.title = title;
     this.author = author;
-    this.isbn = isbn;
+    this.number = number;
   }
 
   public String getTitle() {
@@ -22,7 +20,12 @@ public class Book {
     return author;
   }
 
-  public int getIsbn() {
-    return isbn;
+  public int getNumber() {
+    return number;
+  }
+
+  @Override
+  public String toString() {
+    return "Book{title='" + title + "', author='" + author + "', number=" + number + "}";
   }
 }
