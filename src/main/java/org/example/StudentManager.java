@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.List;
-import java.util.Optional;
 
 public class StudentManager {
 
@@ -12,11 +11,6 @@ public class StudentManager {
   }
 
   public Student search(String name) {
-    for (Student v : studentList) {
-      if (v.getName().equals(name)) {
-        return Optional.of(v).get();
-      }
-    }
-    return Optional.<Student>empty().get();
+    return studentList.stream().filter(v -> v.getName().equals(name)).findFirst().get();
   }
 }
