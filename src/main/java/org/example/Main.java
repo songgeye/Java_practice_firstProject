@@ -1,17 +1,17 @@
 package org.example;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.IntStream;
+import java.util.Scanner;
 
+//TIP コードを<b>実行</b>するには、<shortcut actionId="Run"/> を押すか
+// ガターの <icon src="AllIcons.Actions.Execute"/> アイコンをクリックします。
 public class Main {
 
   public static void main(String[] args) {
-    List<Student> studentList = IntStream.range(0, 10)
-        .mapToObj(i -> new Student(UUID.randomUUID().toString(), "松ヶ野" + i)).toList();
-    StudentManager manager = new StudentManager(studentList);
+    System.out.println("入力例:");
+    System.out.print("1番目の数字を入力してください: ");
+    Scanner sc = new Scanner(System.in);
 
-    Student student = manager.search("松ヶ野3");
-    System.out.println(student.getName());
+    int calcNum = sc.nextInt();
+    System.out.println("演算子を入力してください (+, -, *, /): ");
   }
 }
