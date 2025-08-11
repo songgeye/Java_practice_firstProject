@@ -6,29 +6,42 @@ import java.util.Scanner;
 // ガターの <icon src="AllIcons.Actions.Execute"/> アイコンをクリックします。
 public class Main {
 
+  private Scanner scanner;
+  private StudentManager studentManager;
+//  List<Student> studentList = new ArrayList<>();
+
+  public Main() {
+    this.scanner = new Scanner(System.in);
+    this.studentManager = new StudentManager();
+//    this.studentManager = new StudentManager(studentList);
+  }
+
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
 
-    System.out.println("入力例:");
+    Main main = new Main();
+    main.showMenu();
+  }
 
-    System.out.print("1番目の数字を入力してください: ");
-    int firstInt = sc.nextInt();
+  // メインメニューを表示
+  public void showMenu() {
+    int choice;
 
-    System.out.print("演算子を入力してください (+, -, *, /): ");
-    String operator = sc.next();
+    do {
+      System.out.println("\"1. 学生を追加\"");
 
-    System.out.print("2番目の数字を入力してください: ");
-    int secondInt = sc.nextInt();
+      choice = scanner.nextInt();
+      scanner.nextLine();
 
-    int result = 0;
-    switch (operator) {
-      case "+" -> result = firstInt + secondInt;
-      case "-" -> result = firstInt - secondInt;
-      case "*" -> result = firstInt * secondInt;
-      case "/" -> result = firstInt / secondInt;
+      switch (choice) {
+        case 1 -> addStudentMenu();
+      }
+    } while (choice != 6);
 
-    }
-    System.out.println("期待される出力例:");
-    System.out.print("計算結果: " + result);
+  }
+
+  private void addStudentMenu() {
+    System.out.println("学生を追加");
+    String studentName = scanner.nextLine();
+    studentManager.addStudent(studentName);
   }
 }
