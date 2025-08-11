@@ -6,12 +6,42 @@ import java.util.Scanner;
 // ガターの <icon src="AllIcons.Actions.Execute"/> アイコンをクリックします。
 public class Main {
 
-  public static void main(String[] args) {
-    System.out.println("入力例:");
-    System.out.print("1番目の数字を入力してください: ");
-    Scanner sc = new Scanner(System.in);
+  private Scanner scanner;
+  private StudentManager studentManager;
+//  List<Student> studentList = new ArrayList<>();
 
-    int calcNum = sc.nextInt();
-    System.out.println("演算子を入力してください (+, -, *, /): ");
+  public Main() {
+    this.scanner = new Scanner(System.in);
+    this.studentManager = new StudentManager();
+//    this.studentManager = new StudentManager(studentList);
+  }
+
+  public static void main(String[] args) {
+
+    Main main = new Main();
+    main.showMenu();
+  }
+
+  // メインメニューを表示
+  public void showMenu() {
+    int choice;
+
+    do {
+      System.out.println("\"1. 学生を追加\"");
+
+      choice = scanner.nextInt();
+      scanner.nextLine();
+
+      switch (choice) {
+        case 1 -> addStudentMenu();
+      }
+    } while (choice != 6);
+
+  }
+
+  private void addStudentMenu() {
+    System.out.println("学生を追加");
+    String studentName = scanner.nextLine();
+    studentManager.addStudent(studentName);
   }
 }

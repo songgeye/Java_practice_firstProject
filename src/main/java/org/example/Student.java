@@ -2,19 +2,37 @@ package org.example;
 
 public class Student {
 
-  String id;
-  String name;
+  private String studentName;
 
-  public Student(String id, String name) {
-    this.id = id;
-    this.name = name;
+  private int testScore;
+
+  public Student(String studentName, int testScore) {
+    this.studentName = studentName;
+    this.testScore = testScore;
   }
 
-  public String getID() {
-    return id;
+  public Student(String studentName) {
+    this.studentName = studentName;
+    this.testScore = 0;
   }
 
   public String getName() {
-    return name;
+    return studentName;
+  }
+
+  public int getScore() {
+    return testScore;
+  }
+
+  public void setName(String studentName) {
+    if (studentName != null && !studentName.trim().isEmpty()) {
+      this.studentName = studentName;
+    }
+  }
+
+  public void setScore(int testScore) {
+    if (testScore >= 0 && testScore <= 100) {
+      this.testScore = testScore;
+    }
   }
 }
