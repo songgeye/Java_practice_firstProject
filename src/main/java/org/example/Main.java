@@ -34,8 +34,12 @@ public class Main {
 
       switch (choice) {
         case 1 -> addStudentMenu();
+        case 2 -> removeStudentMenu();
+        case 3 -> System.out.println("プログラムを終了します。");
+        case 4 -> displayAllStudentsMenu();
+        default -> System.out.println("✗ 無効な選択です。1-6の数字を入力してください。");
       }
-    } while (choice != 6);
+    } while (choice != 4);
 
   }
 
@@ -43,5 +47,19 @@ public class Main {
     System.out.println("学生を追加");
     String studentName = scanner.nextLine();
     studentManager.addStudent(studentName);
+  }
+
+  private void removeStudentMenu() {
+    System.out.println("学生を削除");
+
+    if (!studentManager.hasStudents()) {
+      System.out.println("削除できる学生がいません。");
+      return;
+    }
+  }
+
+  private void displayAllStudentsMenu() {
+    System.out.println("\n--- 全学生の情報 ---");
+    studentManager.displayAllStudents();
   }
 }
