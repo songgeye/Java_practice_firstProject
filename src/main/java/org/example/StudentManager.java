@@ -13,26 +13,15 @@ public class StudentManager {
     this.studentList = new ArrayList<>();
   }
 
-//  public StudentManager(List<Student> studentList) {
-//    this.studentList = studentList;
-//  }
-
+  // 1. 学生を追加
   public void addStudent(String studentName, int testScore) {
     Student student = new Student(studentName, testScore);
     studentList.add(student);
     System.out.println("✓ 学生を追加しました: " + student);
   }
 
+  // 2. 学生を削除
   public boolean removeStudent(String studentName) {
-//    for (int i = 0; i < studentList.size(); i++) {
-//      if (studentList.get(i).getName().equals(name)) {
-//        Student removed = studentList.remove(i);
-//        System.out.println("✓ 学生を削除しました: " + removed);
-//        return true;
-//      }
-//    }
-//    System.out.println("✗ 指定された学生が見つかりません: " + name);
-//    return false;
 
     Optional<Student> targetStudent = studentList.stream()
         .filter(studentList -> studentList.getName().equals(studentName))
@@ -48,6 +37,7 @@ public class StudentManager {
     return false;
   }
 
+  // 3. 点数を更新
   public boolean updateScore(String studentName, int latestScore) {
     boolean updated = studentList.stream()
         .filter(student -> student.getName().equals(studentName))
@@ -68,6 +58,7 @@ public class StudentManager {
     return updated;
   }
 
+  // 4. 平均点を計算
   public double calculateAverage() {
     if (studentList.isEmpty()) {
       System.out.println("学生が登録されていません。");
@@ -83,6 +74,7 @@ public class StudentManager {
     return average;
   }
 
+  // 5. 全学生の情報を表示
   public void displayAllStudents() {
     if (studentList.isEmpty()) {
       System.out.println("登録されている学生がいません。");

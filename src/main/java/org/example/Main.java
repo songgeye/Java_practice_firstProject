@@ -8,12 +8,10 @@ public class Main {
 
   private Scanner scanner;
   private StudentManager studentManager;
-//  List<Student> studentList = new ArrayList<>();
 
   public Main() {
     this.scanner = new Scanner(System.in);
     this.studentManager = new StudentManager();
-//    this.studentManager = new StudentManager(studentList);
   }
 
   public static void main(String[] args) {
@@ -51,6 +49,7 @@ public class Main {
     } while (choice != 6);
   }
 
+  // 1. 学生を追加
   private void addStudentMenu() {
     System.out.print("学生名を入力: ");
     String studentName = scanner.nextLine();
@@ -61,6 +60,7 @@ public class Main {
     studentManager.addStudent(studentName, testScore);
   }
 
+  // 2. 学生を削除
   private void removeStudentMenu() {
     System.out.println("学生を削除");
 
@@ -76,6 +76,7 @@ public class Main {
     studentManager.removeStudent(studentName);
   }
 
+  // 3. 点数を更新
   private void updatescoreMenu() {
     System.out.println("点数を更新");
 
@@ -95,6 +96,8 @@ public class Main {
     studentManager.updateScore(studentName, latestScore);
   }
 
+
+  // 4. 平均点を計算
   private void calculateAverageMenu() {
     System.out.println("平均点を計算");
 
@@ -106,9 +109,10 @@ public class Main {
     studentManager.calculateAverage();
   }
 
+  // 5. 全学生の情報を表示
   private void displayAllStudentsMenu() {
     System.out.println("--- 全学生の情報 ---");
-    
+
     studentManager.displayAllStudents();
   }
 }
