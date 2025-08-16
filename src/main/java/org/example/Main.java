@@ -2,12 +2,17 @@ package org.example;
 
 import java.util.Scanner;
 
-//TIP コードを<b>実行</b>するには、<shortcut actionId="Run"/> を押すか
-// ガターの <icon src="AllIcons.Actions.Execute"/> アイコンをクリックします。
 public class Main {
 
+  private Scanner scanner;
+  private StudentManager studentManager;
+
+  public Main() {
+    this.scanner = new Scanner(System.in);
+    this.studentManager = new StudentManager();
+  }
+
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
 
     System.out.println("入力例:");
   }
