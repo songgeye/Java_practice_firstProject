@@ -8,7 +8,13 @@ public class Main {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-
-    System.out.println("入力例:");
+    System.out.print("携帯電話番号を入力してください: ");
+    String inputNumber = sc.nextLine();
+    if (PhoneNumberValidator.isValid(inputNumber)) {
+      System.out.println("有効な携帯電話番号です。");
+    } else {
+      System.out.println("無効な携帯電話番号です。ハイフンを含まない形式は無効です。");
+    }
+    sc.close();
   }
 }
