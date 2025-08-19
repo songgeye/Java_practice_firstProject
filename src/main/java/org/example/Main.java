@@ -15,7 +15,7 @@ public class Main {
     main.InputManager();
   }
 
-  public void InputManager() {
+  public void inputManager() {
     System.out.print("携帯電話番号を入力してください: ");
     String inputNumber = sc.nextLine();
     if (PhoneNumberValidator.isValid(inputNumber)) {
