@@ -12,13 +12,14 @@ public class Main {
 
   public static void main(String[] args) {
     Main main = new Main();
-    main.InputManager();
+    main.manageInput();
   }
 
-  public void InputManager() {
+  public void manageInput() {
+    System.out.println("入力例:");
     System.out.print("携帯電話番号を入力してください: ");
     String inputNumber = sc.nextLine();
-    if (PhoneNumberValidator.isValid(inputNumber)) {
+    if (MobilePhoneNumberValidator.isValid(inputNumber)) {
       System.out.println(inputNumber + " は有効な携帯電話番号です。");
     } else {
       System.out.println(inputNumber + " は無効な携帯電話番号です。");
